@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio | Karolina Muniz</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #4b2e1f;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 42px;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-size: 16px;
+      color: #7a5c4a;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .titulo-categoria {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .titulo-categoria h2 {
+      font-size: 30px;
+      color: #f2a7c6;
+      margin: 0;
+    }
+
+    .titulo-categoria span {
+      font-size: 14px;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .lista {
+      margin-bottom: 40px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px dotted #999;
+      padding: 6px 0;
+      font-size: 15px;
+    }
+
+    .preco {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .divisor {
+      border-top: 2px dotted #f2a7c6;
+      margin: 40px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #7a5c4a;
+    }
+
+    @media (max-width: 600px) {
+      .titulo-categoria {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Karolina Muniz</h1>
+  <p>Confeitaria Artesanal</p>
+</header>
+
+<section>
+
+  <!-- DOCES -->
+  <div class="titulo-categoria">
+    <h2>Doces:</h2>
+    <span>VALORES DO CENTO:</span>
+  </div>
+
+  <div class="lista">
+    <div class="item"><span>Brigadeiro</span><span class="preco">140,00</span></div>
+    <div class="item"><span>Brigadeiro com coco</span><span class="preco">140,00</span></div>
+    <div class="item"><span>Brigadeiro com amendoim</span><span class="preco">140,00</span></div>
+    <div class="item"><span>Beijinho</span><span class="preco">140,00</span></div>
+    <div class="item"><span>Ninho com nutella</span><span class="preco">140,00</span></div>
+    <div class="item"><span>Casadinho</span><span class="preco">140,00</span></div>
+    <div class="item"><span>Casadinho sensação</span><span class="preco">140,00</span></div>
+    <div class="item"><span>Amendoim</span><span class="preco">140,00</span></div>
+    <div class="item"><span>Paçoca</span><span class="preco">140,00</span></div>
+    <div class="item"><span>Amendoim com coco</span><span class="preco">140,00</span></div>
+    <div class="item"><span>Nesquik</span><span class="preco">140,00</span></div>
+    <div class="item"><span>Oreo</span><span class="preco">150,00</span></div>
+    <div class="item"><span>Castanha</span><span class="preco">150,00</span></div>
+    <div class="item"><span>Ovomaltine</span><span class="preco">150,00</span></div>
+    <div class="item"><span>Napolitano</span><span class="preco">150,00</span></div>
+    <div class="item"><span>Ferrero Rocher</span><span class="preco">170,00</span></div>
+    <div class="item"><span>Olho de sogra</span><span class="preco">170,00</span></div>
+    <div class="item"><span>Surpresa de uva</span><span class="preco">170,00</span></div>
+    <div class="item"><span>Romeu e Julieta</span><span class="preco">170,00</span></div>
+    <div class="item"><span>Churros</span><span class="preco">170,00</span></div>
+    <div class="item"><span>Coco queimado</span><span class="preco">170,00</span></div>
+    <div class="item"><span>Coco queimado premium com doce de leite</span><span class="preco">180,00</span></div>
+    <div class="item"><span>Coco premium com doce de leite e ameixa</span><span class="preco">180,00</span></div>
+    <div class="item"><span>Prestígio premium</span><span class="preco">180,00</span></div>
+    <div class="item"><span>Ourico</span><span class="preco">190,00</span></div>
+    <div class="item"><span>Nozes</span><span class="preco">300,00</span></div>
+    <div class="item"><span>Amendoas</span><span class="preco">300,00</span></div>
+    <div class="item"><span>Camafeu</span><span class="preco">360,00</span></div>
+    <div class="item"><span>Bala baiana</span><span class="preco">410,00</span></div>
+    <div class="item"><span>Morango trufado</span><span class="preco">850,00</span></div>
+  </div>
+
+  <div class="divisor"></div>
+
+  <!-- TRUFAS -->
+  <div class="titulo-categoria">
+    <h2>Trufas:</h2>
+    <span>VALORES DO CENTO:</span>
+  </div>
+
+  <div class="lista">
+    <div class="item"><span>Trufas tradicionais</span><span class="preco">150,00</span></div>
+    <div class="item"><span>Trufas com glitter</span><span class="preco">180,00</span></div>
+    <div class="item"><span>Corações de chocolate personalizados</span><span class="preco">180,00</span></div>
+    <div class="item"><span>Trufas personalizadas</span><span class="preco">200,00</span></div>
+    <div class="item"><span>Doces modelados</span><span class="preco">200,00</span></div>
+    <div class="item"><span>Hóstia de chocolate com flor</span><span class="preco">250,00</span></div>
+    <div class="item"><span>Copinho de chocolate com cereja</span><span class="preco">300,00</span></div>
+    <div class="item"><span>Copinho de chocolate com chips</span><span class="preco">300,00</span></div>
+  </div>
+
+</section>
+
+<footer>
+  Encomendas sob consulta • Karolina Muniz
+</footer>
+
+</body>
+</html>
