@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #4b2e1f;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+header h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 60px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  color: #6b4b3e;
+}
+
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.bloco {
+  background: #fff7fb;
+  border: 2px dotted #f2a7c6;
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.titulo-categoria {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.titulo-categoria h2,
+.titulo-categoria h3 {
+  color: #f2a7c6;
+  margin: 0;
+}
+
+.lista {
+  margin-bottom: 30px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted #999;
+  padding: 6px 0;
+  font-size: 15px;
+}
+
+.preco {
+  font-weight: 600;
+}
+
+.aviso {
+  font-size: 14px;
+  color: #7a5c4a;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #7a5c4a;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 22px;
+}
+
+.whats-footer {
+  color: #25d366;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 600px) {
+  .titulo-categoria {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

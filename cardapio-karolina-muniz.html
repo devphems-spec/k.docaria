@@ -8,148 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff;
-      color: #4b2e1f;
-    }
-
-    header {
-      text-align: center;
-      padding: 40px 20px 20px;
-    }
-
-    header h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 60px;
-      font-weight: 400;
-      margin-bottom: 5px;
-      color: #6b4b3e;
-    }
-
-    header p {
-      font-size: 16px;
-      color: #7a5c4a;
-    }
-
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .bloco {
-      background: #fff7fb;
-      border: 2px dotted #f2a7c6;
-      border-radius: 16px;
-      padding: 30px;
-      margin-bottom: 40px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-    }
-
-    .titulo-categoria {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 20px;
-    }
-
-    .titulo-categoria h2 {
-      font-size: 30px;
-      color: #f2a7c6;
-      margin: 0;
-    }
-
-    .titulo-categoria h3 {
-      font-size: 22px;
-      color: #f2a7c6;
-      margin: 0;
-    }
-
-    .titulo-categoria span {
-      font-size: 14px;
-      font-weight: 600;
-      color: #000;
-    }
-
-    .lista {
-      margin-bottom: 30px;
-    }
-
-    .item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px dotted #999;
-      padding: 6px 0;
-      font-size: 15px;
-    }
-
-    .preco {
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .aviso {
-      font-size: 14px;
-      color: #7a5c4a;
-      margin-top: -10px;
-      margin-bottom: 20px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #7a5c4a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      font-size: 22px;
-    }
-
-    .whats-footer {
-      color: #25d366;
-      transition: 0.2s;
-    }
-
-    .whats-footer:hover {
-      transform: scale(1.2);
-    }
-
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      z-index: 999;
-      transition: 0.2s;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-    }
-
-    @media (max-width: 600px) {
-      .titulo-categoria {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-      }
-    }
-  </style>
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -160,9 +20,7 @@
 
 <section>
 
-  <!-- BLOCO 1: DOCES + TRUFAS -->
   <div class="bloco">
-
     <div class="titulo-categoria">
       <h2>Doces</h2>
       <span>VALORES DO CENTO</span>
@@ -216,10 +74,8 @@
       <div class="item"><span>Copinho de chocolate com cereja</span><span class="preco">R$ 300,00</span></div>
       <div class="item"><span>Copinho de chocolate com chips</span><span class="preco">R$ 300,00</span></div>
     </div>
-
   </div>
-
-  <!-- BLOCO 2: BOLOS + VULCÃO -->
+<!-- BLOCO 2: BOLOS + VULCÃO -->
 <div class="bloco">
 
   <div class="titulo-categoria">
@@ -269,12 +125,12 @@
 
 <footer>
   <span>Encomendas:</span>
-  <a href="https://wa.me/557499232446" target="_blank" class="whats-footer">
+  <a href="https://wa.me/557488333133" target="_blank" class="whats-footer">
     <i class="fab fa-whatsapp"></i>
   </a>
 </footer>
 
-<a href="https://wa.me/557499232446" class="whatsapp-float" target="_blank">
+<a href="https://wa.me/557488333133" class="whatsapp-float" target="_blank">
   <i class="fab fa-whatsapp"></i>
 </a>
 
