@@ -3,27 +3,142 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cardápio | Karolina Muniz</title>
+  <title>Cardápio | Vó Rita</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- CSS externo -->
- <link rel="stylesheet" href="style.css?v=2">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #e9f0ff; /* azul bem claro */
+      color: #1f2f4d;
+    }
+
+    header {
+      background: #6C8FD6; /* azul da imagem */
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: white;
+      margin: 0;
+    }
+
+    .bloco {
+      background: white;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .titulo-categoria h2,
+    .titulo-categoria h3 {
+      text-align: center;
+      color: #6C8FD6;
+      margin-top: 10px;
+    }
+
+    .lista {
+      margin-top: 10px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px dashed #c7d4f2;
+    }
+
+    .preco {
+      font-weight: bold;
+      color: #6C8FD6;
+    }
+
+    .aviso {
+      background: #eef3ff;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      margin: 10px 0;
+      border-left: 4px solid #6C8FD6;
+    }
+
+    /* GALERIA */
+    .galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+    .galeria img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #6C8FD6;
+    }
+
+    /* WHATSAPP */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+/* RESPONSIVO PARA CELULAR */
+@media (max-width: 600px) {
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .galeria img {
+    height: 220px;
+  }
+
+  header h1 {
+    font-size: 2.4rem;
+  }
+}
+
+  </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Karolina Muniz</h1>
+  <h1>Vó Rita</h1>
 </header>
 
 <section>
-<!-- BLOCO 2: BOLOS + VULCÃO -->
 <div class="bloco">
 
   <div class="titulo-categoria">
     <h2>Bolos</h2>
+  </div>
+
+  <!-- GALERIA DE FOTOS -->
+  <div class="galeria">
+    <img src="bolo1.png" alt="Bolo de chocolate">
+    <img src="bolo2.png" alt="Bolo de cenoura">
+    <img src="bolo3.png" alt="Bolo vulcão">
   </div>
 
   <div class="titulo-categoria">
@@ -49,7 +164,7 @@
   </div>
 
   <p class="aviso">
-    O bolo vulcão é feito com <strong>1 massa dos tradicionais</strong> + 
+    O bolo vulcão é feito com <strong>1 massa dos tradicionais</strong> +
     <strong>1 recheio à sua escolha</strong>.
   </p>
 
@@ -65,7 +180,6 @@
 
 </div>
 </section>
-
 
 <a href="https://wa.me/557488333133" class="whatsapp-float" target="_blank">
   <i class="fab fa-whatsapp"></i>
