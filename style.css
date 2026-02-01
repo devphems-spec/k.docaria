@@ -80,6 +80,13 @@ footer {
   gap: 8px;
   font-size: 22px;
 }
+.foto-categoria {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
 
 .whats-footer {
   color: #25d366;
@@ -108,3 +115,4 @@ footer {
     align-items: flex-start;
   }
 }
+
