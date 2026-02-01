@@ -114,5 +114,10 @@ footer {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .foto-categoria {
+    height: 150px;
+  }
 }
+
 
