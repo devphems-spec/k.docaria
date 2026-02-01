@@ -86,7 +86,9 @@ footer {
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 20px;
+  display: block;
 }
+
 
 .whats-footer {
   color: #25d366;
@@ -110,13 +112,9 @@ footer {
 }
 
 @media (max-width: 600px) {
-  .titulo-categoria {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   .foto-categoria {
-    height: 150px;
+    height: 140px;
+    object-position: center;
   }
 }
 
