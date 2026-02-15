@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumo do Pedido | Karolina Muniz</title>
+  <link rel="icon" href="logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+/* <body class="app">
+<h1>Resumo do Pedido</h1>
+
+<!-- =========================
+     NOTA / RESUMO
+========================= -->
+
+<div class="resumo-box">
+
+  <div id="listaResumo"></div>
+
+  <div class="total-box">
+    <span>Total</span>
+    <span>R$ <span id="totalFinal">0.00</span></span>
+  </div>
+
+</div>
+
+
+<!-- =========================
+     DADOS DO CLIENTE
+========================= -->
+
+<div class="form-section">
+
+  <h2>Seus Dados</h2>
+
+  <label>Nome completo</label>
+  <input type="text" id="nomeCliente">
+
+  <label>Telefone (WhatsApp)</label>
+  <input type="tel" id="telefoneCliente">
+
+  <label>Data da encomenda</label>
+  <input type="date" id="dataEncomenda">
+
+  <label>Horário</label>
+  <input type="time" id="horaEncomenda">
+
+  <label>Tipo</label>
+  <div class="tipo-entrega">
+    <button type="button" id="btnRetirada" class="ativo">Retirada</button>
+    <button type="button" id="btnEntrega">Entrega</button>
+  </div>
+
+  <input type="text" id="enderecoCliente" placeholder="Endereço completo" style="display:none;">
+
+</div>
+
+
+<!-- =========================
+     PAGAMENTO
+========================= -->
+
+<div class="form-section">
+
+  <h2>Forma de Pagamento</h2>
+
+  <div class="pagamento-box">
+    <button type="button" class="pagamento-btn ativo" data-pagamento="pix">
+      PIX
+    </button>
+
+    <button type="button" class="pagamento-btn" data-pagamento="cartao">
+      Cartão
+    </button>
+  </div>
+
+<div id="opcoesCartao" style="display:none;">
+  <select id="tipoCartao">
+    <option value="">Selecione</option>
+    <option value="Crédito">Crédito</option>
+    <option value="Débito">Débito</option>
+  </select>
+</div>
+
+<div id="infoPix" style="display:block;">
+  <p class="pix-info">
+    Chave PIX: <strong>7488333133</strong>
+  </p>
+</div>
+
+<button onclick="finalizarPedido()">Finalizar Pedido</button>
+
+<script>
+
+const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+const lista = document.getElementById("listaResumo");
+const totalSpan = document.getElementById("totalFinal");
+
+let total = 0;
+
+/* ============================
+   MOSTRAR RESUMO
+============================ */
+
+if (carrinho.length === 0) {
+  lista.innerHTML = "<p>Seu carrinho está vazio.</p>";
+} else {
+  carrinho.forEach(item => {
+    const subtotal = item.preco * item.qtd;
+    total += subtotal;
+
+    lista.innerHTML += `
+      <div class="item-resumo">
+        ${item.nome} - ${item.qtd}x  
+        <strong>R$ ${subtotal.toFixed(2)}</strong>
+      </div>
+    `;
+  });
+}
+
+totalSpan.textContent = total.toFixed(2);
+
+/* ============================
+   ENTREGA / RETIRADA
+============================ */
+
+let tipoEntrega = "retirada";
+
+const btnRetirada = document.getElementById("btnRetirada");
+const btnEntrega = document.getElementById("btnEntrega");
+const enderecoInput = document.getElementById("enderecoCliente");
+
+btnRetirada.addEventListener("click", () => {
+  tipoEntrega = "retirada";
+  btnRetirada.classList.add("ativo");
+  btnEntrega.classList.remove("ativo");
+  enderecoInput.style.display = "none";
+  enderecoInput.value = "";
+});
+
+btnEntrega.addEventListener("click", () => {
+  tipoEntrega = "entrega";
+  btnEntrega.classList.add("ativo");
+  btnRetirada.classList.remove("ativo");
+  enderecoInput.style.display = "block";
+});
+/* ============================
+   PAGAMENTO
+============================ */
+
+let formaPagamento = "pix";
+
+const botoesPagamento = document.querySelectorAll(".pagamento-btn");
+const opcoesCartao = document.getElementById("opcoesCartao");
+const tipoCartao = document.getElementById("tipoCartao");
+const infoPix = document.getElementById("infoPix");
+
+botoesPagamento.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    botoesPagamento.forEach(b => b.classList.remove("ativo"));
+    btn.classList.add("ativo");
+
+    formaPagamento = btn.dataset.pagamento;
+
+    if (formaPagamento === "cartao") {
+      opcoesCartao.style.display = "block";
+      infoPix.style.display = "none";
+    } else {
+      opcoesCartao.style.display = "none";
+      infoPix.style.display = "block";
+      tipoCartao.value = "";
+    }
+  });
+});
+
+/* ============================
+   FINALIZAR PEDIDO
+============================ */
+
+function finalizarPedido() {
+
+  const nome = document.getElementById("nomeCliente").value.trim();
+  const telefone = document.getElementById("telefoneCliente").value.trim();
+  const data = document.getElementById("dataEncomenda").value;
+  const hora = document.getElementById("horaEncomenda").value;
+  const endereco = enderecoInput.value.trim();
+
+  if (!nome) {
+    alert("Informe seu nome.");
+    return;
+  }
+
+  if (!telefone) {
+    alert("Informe seu número.");
+    return;
+  }
+
+  if (!data) {
+    alert("Informe a data.");
+    return;
+  }
+
+  if (!hora) {
+    alert("Informe o horário.");
+    return;
+  }
+
+  if (tipoEntrega === "entrega" && !endereco) {
+    alert("Informe o endereço para entrega.");
+    return;
+  }
+if (formaPagamento === "cartao" && !tipoCartao.value) {
+  alert("Selecione Crédito ou Débito.");
+  return;
+}
+
+  const [ano, mes, dia] = data.split("-");
+
+  let msg = `Olá! Meu nome é ${nome}%0A`;
+  msg += `Telefone: ${telefone}%0A`;
+  msg += `Tipo: *${tipoEntrega === "entrega" ? "Entrega" : "Retirada"}*%0A`;
+msg += `%0AForma de pagamento: *${formaPagamento === "pix" ? "PIX" : "Cartão - " + tipoCartao.value}*%0A`;
+
+  if (tipoEntrega === "entrega") {
+    msg += `Endereço: ${endereco}%0A`;
+  }
+
+  msg += `Data: ${dia}/${mes}/${ano} às ${hora}%0A%0A`;
+
+  carrinho.forEach(item => {
+    msg += `* ${item.nome}: ${item.qtd} unidades = R$ ${(item.qtd * item.preco).toFixed(2)}%0A`;
+  });
+
+  msg += `%0A*Total: R$ ${total.toFixed(2)}*`;
+
+  window.open(`https://wa.me/557488333133?text=${msg}`, "_blank");
+
+  localStorage.removeItem("carrinho");
+}
+
+</script>
+
+</body>
+</html> 
+

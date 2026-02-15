@@ -1,3 +1,7 @@
+/* ======================================================
+   RESET / BASE
+====================================================== */
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -5,12 +9,16 @@ body {
   color: #4b2e1f;
 }
 
-header {
+/* ======================================================
+   SITE PRINCIPAL (index.html)
+====================================================== */
+
+body.site header {
   text-align: center;
   padding: 40px 20px 20px;
 }
 
-header h1 {
+body.site header h1 {
   font-family: 'Great Vibes', cursive;
   font-size: 60px;
   font-weight: 400;
@@ -18,7 +26,7 @@ header h1 {
   color: #6b4b3e;
 }
 
-section {
+body.site section {
   max-width: 900px;
   margin: auto;
   padding: 20px;
@@ -40,8 +48,7 @@ section {
   margin-bottom: 20px;
 }
 
-.titulo-categoria h2,
-.titulo-categoria h3 {
+.titulo-categoria h2 {
   color: #f2a7c6;
   margin: 0;
 }
@@ -66,20 +73,6 @@ section {
   text-align: right;
 }
 
-.aviso {
-  font-size: 14px;
-  color: #7a5c4a;
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #7a5c4a;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  font-size: 22px;
-}
 .foto-categoria {
   width: 100%;
   height: 220px;
@@ -89,11 +82,41 @@ footer {
   display: block;
 }
 
+/* Botão flutuante encomenda */
+.encomenda-float {
+  position: fixed;
+  top: 20px;
+  right: 20px;
 
-.whats-footer {
-  color: #25d366;
+  background: linear-gradient(135deg, #b5835a, #a47148);
+  color: #fff;
+
+  padding: 12px 18px;
+  border-radius: 12px;
+
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  box-shadow: 0 6px 18px rgba(139, 94, 60, 0.25);
+  z-index: 1000;
+
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+.encomenda-float:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(139, 94, 60, 0.35);
+}
+.encomenda-float.esconder {
+  transform: translateY(-100px);
+  opacity: 0;
+}
+/* WhatsApp simples */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -111,11 +134,724 @@ footer {
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-@media (max-width: 600px) {
-  .foto-categoria {
-    height: 140px;
-    object-position: center;
-  }
+/* ======================================================
+   APP ENCOMENDA (encomenda.html)
+====================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --marrom: #6b4b3e;
+  --marrom-claro: #c08a5b;
+  --bege: #f7efe9;
+  --bege-card: #fff;
+  --rosa: #e91e63;
+  --verde: #2ecc71;
+  --cinza: #777;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.app {
+  background: var(--bege);
+  font-family: 'Poppins', sans-serif;
+  color: var(--marrom);
+}
+
+/* ---------- HERO / CABEÇALHO ---------- */
+
+
+.hero {
+  background: #fff;
+  border-radius: 0 0 25px 25px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.banner img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.insta {
+  color: #c08a5c;
+  font-weight: 600;
+  text-decoration: none;
+  background: rgba(192, 138, 92, 0.12);
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-left: 6px;
+  transition: all 0.2s ease;
+}
+
+.titulo {
+   background: linear-gradient(135deg, #e8ded7, #d8c6bb);
+  padding: 18px 40px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #5a3e2b;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  width: fit-content;
+  margin: 2px auto;
+}
+
+.insta:hover {
+  background: #c08a5c;
+  color: #fff;
+}
+.tipo-entrega {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.entrega-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.entrega-btn.ativo {
+  background: #2ecc71;
+  color: #fff;
+  border-color: #2ecc71;
+}
+.entrega-btn:not(.ativo):hover {
+  background: #f0f0f0;
+}
+.tipo-entrega {
+  grid-column: 1 / -1; /* ocupa a linha toda */
+}
+#enderecoCliente {
+  grid-column: 1 / -1;
+}
+
+/* BLOCO LOJA */
+.info-loja {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 24px;
+}
+
+.logo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 14px;
+  object-fit: cover;
+  background: var(--bege);
+  padding: 6px;
+ 
+}
+
+/* AQUI É O AJUSTE PRINCIPAL */
+.dados h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 58px; 
+  line-height: 1.1;
+  font-weight: 200;
+  align-items: flex-start;
+  margin: auto;
 }
 
 
+
+.status .insta {
+  color: var(--marrom-claro);
+  font-weight: 500;
+}
+
+
+@media (min-width: 700px) {
+  .dados-cliente {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.obs {
+  text-align: center;
+  font-size: 12px;
+  color: var(--cinza);
+  margin: 8px 0 14px;
+}
+
+
+/* ---------- CONTAINER ---------- */
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+.card {
+  overflow: hidden;
+}
+/* ---------- TÍTULO ---------- */
+.controle {
+  flex-shrink: 0;
+}
+.titulo-bloco {
+  margin: 16px;
+  font-size: 22px;
+  font-family: 'Playfair Display', serif;
+}
+
+/* ---------- CARD ---------- */
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bege-card);
+  padding: 10px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+ min-height: 95px;
+}
+
+.card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.card .info {
+  flex: 1;
+  margin-left: 12px;
+}
+
+.card h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.card p {
+  font-size: 14px;
+  color: var(--cinza);
+}
+
+/* ---------- CONTROLE + - ---------- */
+
+.controle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.controle button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controle .menos {
+  background: var(--marrom);
+}
+
+.controle .mais {
+  background: var(--marrom-claro);
+}
+
+.controle .qtd {
+  width: 44px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  background: #f3f3f3;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  outline: none;
+}
+
+/* remove setinhas do input */
+.controle .qtd::-webkit-inner-spin-button,
+.controle .qtd::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ---------- CARRINHO FLOAT ---------- */
+
+.carrinho-float {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+
+  background: linear-gradient(135deg, #2fbf71, #28a862);
+  color: #fff;
+
+  padding: 16px 26px;
+  border-radius: 40px;
+
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+
+  cursor: pointer;
+  z-index: 999;
+
+  transition: 
+    transform 0.35s cubic-bezier(.4,0,.2,1),
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Hover suave */
+.carrinho-float:hover {
+  transform: translateX(-50%) translateY(-4px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.3);
+}
+
+/* Ícone */
+.carrinho-float i {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.carrinho-float:hover i {
+  transform: scale(1.15);
+}
+
+.entrega-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 9999;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.entrega-float.escondido {
+  transform: translateY(100px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+.entrega-float .entrega-btn {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: none;
+  background: #eee;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 13px;
+}
+
+.entrega-float .entrega-btn.ativo {
+  background: #2ecc71;
+  color: #fff;
+}
+
+.endereco-float {
+  position: fixed;
+  bottom: 75px;
+  left: 20px;
+  transform: none;
+  width: 90%;
+  max-width: 420px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+.endereco-float.escondido {
+  transform: translateY(100px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ======================================================
+   RESPONSIVO
+====================================================== */
+
+@media (max-width: 600px) {
+  .foto-categoria {
+    height: 140px;
+  }
+}
+@keyframes slideUpFade {
+  from {
+    transform: translateX(-50%) translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+.carrinho-float {
+  animation: slideUpFade 0.5s ease;
+}
+/* ============================
+   FUNDO GERAL
+============================ */
+
+body {
+  background: #f4f1ee;
+}
+
+/* ============================
+   TÍTULO
+============================ */
+
+h1 {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  margin-top: 30px;
+  font-size: 26px;
+  letter-spacing: 1px;
+}
+
+/* ============================
+   NOTA / RESUMO
+============================ */
+
+.resumo-box {
+  max-width: 500px;
+  margin: 30px auto;
+  background: #fffdf9;
+  padding: 25px;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+  font-family: 'Courier New', monospace;
+  border: 1px solid #eee;
+}
+
+.item-resumo {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #ccc;
+  font-size: 14px;
+}
+
+.item-resumo:last-child {
+  border-bottom: none;
+}
+
+.total-box {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px solid #000;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#totalFinal {
+  color: #000;
+}
+
+/* ============================
+   FORMULÁRIO
+============================ */
+
+.form-section {
+  max-width: 500px;
+  margin: 30px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-section h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: #444;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #000;
+}
+
+/* ============================
+   BOTÕES ENTREGA & PAGAMENTO
+============================ */
+
+.tipo-entrega,
+.pagamento-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.tipo-entrega button,
+.pagamento-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #000;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.tipo-entrega button.ativo,
+.pagamento-btn.ativo {
+  background: black;
+  color: white;
+}
+
+.tipo-entrega button:hover,
+.pagamento-btn:hover {
+  opacity: 0.8;
+}
+
+/* ============================
+   INFO PIX
+============================ */
+
+.pix-info {
+  margin-top: 10px;
+  font-size: 13px;
+  background: #f4f4f4;
+  padding: 8px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* ============================
+   BOTÃO FINALIZAR
+============================ */
+
+button[onclick="finalizarPedido()"] {
+  display: block;
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  border-radius: 6px;
+  border: none;
+  background: black;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button[onclick="finalizarPedido()"]:hover {
+  opacity: 0.85;
+}
+
+/* ============================
+   RESPONSIVO
+============================ */
+
+@media (max-width: 600px) {
+  .resumo-box,
+  .form-section {
+    margin: 15px;
+  }
+}
+.rodape {
+  background: #111;
+  color: #fff;
+  padding: 40px 20px 20px;
+  margin-top: 60px;
+}
+
+.rodape-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.rodape-col {
+  flex: 1;
+  min-width: 250px;
+}
+
+.rodape h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+}
+
+.rodape h4 {
+  margin-bottom: 10px;
+}
+
+.rodape p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.rodape a {
+  color: #ff4f81;
+  text-decoration: none;
+}
+
+.rodape a:hover {
+  text-decoration: underline;
+}
+
+.rodape-bottom {
+  text-align: center;
+  border-top: 1px solid #333;
+  margin-top: 30px;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #aaa;
+}
+.aberto {
+  color: #28a745;
+  font-weight: 500;
+}
+
+.fechado {
+  color: #ff4d4d;
+  font-weight: 500;
+}
+.menu-inferior {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
+  z-index: 1000;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  color: #7a5c4b;
+  cursor: pointer;
+}
+
+.menu-item i {
+  font-size: 18px;
+  margin-bottom: 3px;
+}
+
+.menu-item.destaque {
+  background: #27ae60;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 25px;
+  font-weight: 500;
+}
+
+body {
+  padding-bottom: 80px;
+}
+/* MODAL LOGIN */
+
+.modal-login {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 10px;
+  background: #4b2e1f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.fechar {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
