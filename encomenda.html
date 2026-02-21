@@ -408,29 +408,9 @@
   </main>
 </section>
 
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="auth.js"></script>
 
-
-
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyCfyXFCkeXdmkMccTtAElNcgPUp2M4s99s",
-    authDomain: "karolina-confeitaria.firebaseapp.com",
-    projectId: "karolina-confeitaria",
-    storageBucket: "karolina-confeitaria.firebasestorage.app",
-    messagingSenderId: "519096635220",
-    appId: "1:519096635220:web:d79719c315bad7f6bac2c1",
-    measurementId: "G-Q9X6D81H94"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-</script>
-
-
- 
 <script src="carrinho.js"></script>
 
 <footer class="rodape">
@@ -476,11 +456,11 @@
     <i class="fa-solid fa-list"></i>
     <span><a>Cardápio</a></span>
   </div>
-  <div class="menu-item" id="loginBtn">
+ <!---- <div class="menu-item" id="loginBtn">
   <i class="fa-solid fa-user"></i>
   <span>Login</span>
 </div>
-
+-->
   <div class="menu-item destaque" id="carrinhoBtn">
     <i class="fa-solid fa-cart-shopping"></i>
     <span>
@@ -490,7 +470,7 @@
   </div>
 
 </nav>
-<!-- MODAL LOGIN -->
+<!-- MODAL LOGIN 
 <div class="modal-login" id="modalLogin">
   <div class="modal-content">
     <span class="fechar">&times;</span>
@@ -509,7 +489,16 @@
     <p id="erroLogin" style="color:red; font-size:14px;"></p>
   </div>
 </div>
+-->
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="auth.js"></script>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script>
+  const firebaseConfig = {  };
+  firebase.initializeApp(firebaseConfig);
+</script>
 
 </body>
 
